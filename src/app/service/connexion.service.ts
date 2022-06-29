@@ -22,6 +22,7 @@ export class ConnexionService {
       return null;
     }
   }
+
   deconnect(): any {
     localStorage.clear();
     this.route.navigateByUrl('');

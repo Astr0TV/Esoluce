@@ -20,17 +20,16 @@
     </div>
     <br><br><br><br>
     <!-- affichage du table  -->
-    <mat-form-field class="px-16" style="width: 30%">
-        <input matInput #filter placeholder="Search..." id="listSearch" autocomplete="off" style="width: 100%">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+    <div class="input-group">
+        <span class="input-group-text">what's happening</span>
+        <textarea class="form-control" #message aria-label="With textarea"></textarea>
+        
+        <button mat-raised-button  (click)="envoyemessage(message.value);reloadPage()" color="primary">Envoyer</button>
+      </div>
+<br>
 
-        <form class="example-form">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Message</mat-label>
-                <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
-                <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
-                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-            </mat-form-field>
-        </form>
+      <div class="alert alert-primary" *ngFor="let p of newmessage" role="alert">
+        {{p.user.nom}} : <a  class="alert-link">{{p.message}}</a>
+
+      </div>
 </div>

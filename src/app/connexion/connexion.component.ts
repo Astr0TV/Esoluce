@@ -24,7 +24,7 @@ export class ConnexionComponent implements OnInit {
       next: (data) => {
         this.user = data;
         if (this.user != null) {
-      
+          this.connexionservice.setUserSession(this.user)
             this.route.navigateByUrl('accueil');
           
 
