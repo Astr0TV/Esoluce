@@ -5,16 +5,32 @@
         </div>
         <div class="col-sm-9">
             <br>
-                <p class="entete">
-           
-                    <a >
-                        <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
-                    </a>
-                </p>
-            </div><br><br>
-        
+            <p class="entete">
+
+                <a (click)="goToPage('connexion')">
+                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
+                </a>
+            </p>
+        </div><br><br>
+
     </div>
     <div class="container  topBotomBordersIn">
         <a routerLink="/accueil">ACCEUIL</a>
 
     </div>
+    <br><br><br><br>
+    <!-- affichage du table  -->
+    <mat-form-field class="px-16" style="width: 30%">
+        <input matInput #filter placeholder="Search..." id="listSearch" autocomplete="off" style="width: 100%">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+        <form class="example-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Message</mat-label>
+                <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+                <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>
+        </form>
+</div>
