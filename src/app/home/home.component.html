@@ -1,35 +1,85 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-2">
-            <img src="/assets/logo1.png" width="150">
-        </div>
-        <div class="col-sm-9">
-            <br>
-            <p class="entete">
+<nav class="navbar navbar-expand-lg navbar-light ml-auto" style="background-color: #e3f2fd;">
+    <img src="/assets/esic.png" width="80">
 
-                <a (click)="goToPage('connexion')">
-                    <mat-icon class="iconentete" style="color: red;">power_settings_new</mat-icon>
-                </a>
-            </p>
-        </div><br><br>
-
+    
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li  class="nav-item active pull-right">
+            <img src="/assets/user.png" width="30">        </li>
+       
+        <li class="nav-item ">
+            <a (click)="goToPage('connexion')">
+                <img src="/assets/turn-off.png" width="30">            </a>  
+        </li>
+      </ul>
     </div>
-    <div class="container  topBotomBordersIn">
-        <a routerLink="/accueil">ACCEUIL</a>
-
-    </div>
-    <br><br><br><br>
-    <!-- affichage du table  -->
-    <div class="input-group">
-        <span class="input-group-text">what's happening</span>
-        <textarea class="form-control" #message aria-label="With textarea"></textarea>
-        
-        <button mat-raised-button  (click)="envoyemessage(message.value);reloadPage()" color="primary">Envoyer</button>
-      </div>
+  </nav>
 <br>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <h4> Accueil</h4>
+   <div class="row">
+    
+    <br><br>
+    <div class="col-md-3">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a routerLink="/accueil"><img src="/assets/home.png" width="30">    Accueil</a>
+            </li>
+            <br>
+            <li class="nav-item">
+              <a class="nav-link" ><img src="/assets/email.png" width="30">    Messages</a>
+            </li>
+            <br>
+            <li class="nav-item">
+              <a class="nav-link" ><img  src="/assets/equalizer.png" width="30">    Paramétres</a>
+            </li>
+           
+          </ul>
+    </div>
+   <div class="col-lg-6">
 
-      <div class="alert alert-primary" *ngFor="let p of newmessage" role="alert">
-        {{p.user.nom}} : <a  class="alert-link">{{p.message}}</a>
+    <h3 *ngFor="let p of connexionnew" class="text-center"><span id="nom"></span>Bienvenue, "{{p.nom}}"  👇</h3>
+    <br><br>
+    <div class="form-outline">
+        <textarea class="form-control" #message aria-label="With textarea" placeholder="Demandez de l'aide .."></textarea>
+        <br>
+        <button mat-raised-button  (click)="envoyemessage(message.value);reloadPage()" color="primary">Envoyer</button>
 
       </div>
+
+<br>
+<div class="alert alert-primary" *ngFor="let p of newmessage" role="alert">
+<div class="card p-3 mb-2">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+            <div class="icon"> <i class="bx bxl-mailchimp"></i> </div>
+            <div class="ms-2 c-details">
+                <h6 class="mb-0">{{p.user.nom}}</h6> <span>{{p.date}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5">
+        
+        <h5 class="heading"><a  class="alert-link">{{p.message}}</a></h5>
+       
+    </div>
+</div>
+      
+       
+
+      </div>
+</div>
+   </div>
+   <div class="col-md-4">
+      
+       
+   </div>
+ 
+ <br>
+   
+
 </div>
